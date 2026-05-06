@@ -138,20 +138,11 @@
     position: relative; flex-shrink: 0;
     width: 280px; height: 280px;
   }
-  .avatar-ring {
-    position: absolute; inset: -8px;
-    border-radius: 50%;
-    background: conic-gradient(from 0deg, #4f8ef7, #7c3aed, #10b981, #4f8ef7);
-    animation: spin 8s linear infinite;
-    opacity: 0.6;
-  }
   .avatar-ring-mask {
     position: absolute; inset: -6px;
     border-radius: 50%;
     background: conic-gradient(from 0deg, #4f8ef7, #7c3aed, #10b981, #4f8ef7);
-    animation: spin 8s linear infinite;
   }
-  @keyframes spin { to { transform: rotate(360deg); } }
   .avatar-inner {
     position: relative; z-index: 1;
     width: 280px; height: 280px;
@@ -159,7 +150,11 @@
     border: 3px solid var(--bg);
     background: var(--surface2);
   }
-  .avatar-svg { width: 100%; height: 100%; }
+  .avatar-inner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 
   /* ABOUT */
   .about-section {
@@ -436,72 +431,9 @@
     <!-- AVATAR -->
     <div class="fade-up" style="transition-delay:0.2s">
       <div class="avatar-wrap">
-        <div class="avatar-ring-mask" style="position:absolute;inset:-3px;border-radius:50%;padding:3px;background:conic-gradient(from 0deg,#4f8ef7,#7c3aed,#10b981,#4f8ef7);animation:spin 8s linear infinite;">
-          <div style="background:var(--bg);border-radius:50%;width:100%;height:100%;"></div>
-        </div>
+        <div class="avatar-ring-mask"></div>
         <div class="avatar-inner">
-          <svg class="avatar-svg" viewBox="0 0 280 280" xmlns="http://www.w3.org/2000/svg">
-            <!-- Background -->
-            <rect width="280" height="280" fill="#0f0f1e"/>
-            <!-- Grid lines subtle -->
-            <line x1="0" y1="70" x2="280" y2="70" stroke="#1a1a35" stroke-width="1"/>
-            <line x1="0" y1="140" x2="280" y2="140" stroke="#1a1a35" stroke-width="1"/>
-            <line x1="0" y1="210" x2="280" y2="210" stroke="#1a1a35" stroke-width="1"/>
-            <line x1="70" y1="0" x2="70" y2="280" stroke="#1a1a35" stroke-width="1"/>
-            <line x1="140" y1="0" x2="140" y2="280" stroke="#1a1a35" stroke-width="1"/>
-            <line x1="210" y1="0" x2="210" y2="280" stroke="#1a1a35" stroke-width="1"/>
-            <!-- Glow behind figure -->
-            <ellipse cx="140" cy="180" rx="80" ry="60" fill="rgba(79,142,247,0.06)"/>
-            <!-- Body / jacket -->
-            <path d="M60 280 Q60 210 100 195 L140 185 L180 195 Q220 210 220 280Z" fill="#1a1a3a"/>
-            <!-- Collar detail -->
-            <path d="M110 195 L140 210 L170 195 L165 185 L140 195 L115 185Z" fill="#252545"/>
-            <!-- Neck -->
-            <rect x="125" y="162" width="30" height="28" rx="8" fill="#e8b89a"/>
-            <!-- Head -->
-            <ellipse cx="140" cy="145" rx="46" ry="50" fill="#e8b89a"/>
-            <!-- Hair — dark, short, professional -->
-            <path d="M94 130 Q96 88 140 82 Q184 88 186 130 Q175 100 140 96 Q105 100 94 130Z" fill="#1a0a05"/>
-            <!-- Side hair -->
-            <path d="M94 130 Q90 145 93 158 Q88 140 94 125Z" fill="#1a0a05"/>
-            <path d="M186 130 Q190 145 187 158 Q192 140 186 125Z" fill="#1a0a05"/>
-            <!-- Ears -->
-            <ellipse cx="94" cy="148" rx="8" ry="10" fill="#d9a088"/>
-            <ellipse cx="186" cy="148" rx="8" ry="10" fill="#d9a088"/>
-            <!-- Eyes -->
-            <ellipse cx="124" cy="140" rx="10" ry="8" fill="white"/>
-            <ellipse cx="156" cy="140" rx="10" ry="8" fill="white"/>
-            <circle cx="126" cy="141" r="6" fill="#1a0a05"/>
-            <circle cx="158" cy="141" r="6" fill="#1a0a05"/>
-            <circle cx="128" cy="139" r="2" fill="white"/>
-            <circle cx="160" cy="139" r="2" fill="white"/>
-            <!-- Eyebrows -->
-            <path d="M113 130 Q124 126 133 129" fill="none" stroke="#1a0a05" stroke-width="2.5" stroke-linecap="round"/>
-            <path d="M147 129 Q156 126 167 130" fill="none" stroke="#1a0a05" stroke-width="2.5" stroke-linecap="round"/>
-            <!-- Nose -->
-            <path d="M136 148 Q133 158 140 161 Q147 158 144 148" fill="none" stroke="#c8947a" stroke-width="1.5" stroke-linecap="round"/>
-            <!-- Smile — confident -->
-            <path d="M126 170 Q140 180 154 170" fill="none" stroke="#c0745a" stroke-width="2.5" stroke-linecap="round"/>
-            <!-- Subtle beard shadow -->
-            <path d="M105 168 Q140 188 175 168 Q165 182 140 185 Q115 182 105 168Z" fill="rgba(26,10,5,0.15)"/>
-            <!-- Data viz floating elements -->
-            <!-- Bar chart mini -->
-            <rect x="22" y="90" width="8" height="30" rx="2" fill="#4f8ef7" opacity="0.7"/>
-            <rect x="33" y="80" width="8" height="40" rx="2" fill="#7c3aed" opacity="0.7"/>
-            <rect x="44" y="100" width="8" height="20" rx="2" fill="#10b981" opacity="0.7"/>
-            <!-- Line chart mini -->
-            <polyline points="210,100 220,88 230,94 240,80 250,85 260,72" fill="none" stroke="#4f8ef7" stroke-width="2" opacity="0.6" stroke-linecap="round" stroke-linejoin="round"/>
-            <circle cx="210" cy="100" r="2.5" fill="#4f8ef7" opacity="0.8"/>
-            <circle cx="220" cy="88" r="2.5" fill="#4f8ef7" opacity="0.8"/>
-            <circle cx="230" cy="94" r="2.5" fill="#4f8ef7" opacity="0.8"/>
-            <circle cx="240" cy="80" r="2.5" fill="#4f8ef7" opacity="0.8"/>
-            <circle cx="250" cy="85" r="2.5" fill="#4f8ef7" opacity="0.8"/>
-            <circle cx="260" cy="72" r="2.5" fill="#4f8ef7" opacity="0.8"/>
-            <!-- Donut chart mini -->
-            <circle cx="35" cy="230" r="18" fill="none" stroke="#4f8ef7" stroke-width="6" stroke-dasharray="28 56" opacity="0.7"/>
-            <circle cx="35" cy="230" r="18" fill="none" stroke="#7c3aed" stroke-width="6" stroke-dasharray="20 64" stroke-dashoffset="-28" opacity="0.7"/>
-            <circle cx="35" cy="230" r="18" fill="none" stroke="#10b981" stroke-width="6" stroke-dasharray="8 72" stroke-dashoffset="-48" opacity="0.7"/>
-          </svg>
+          <img src="images/profile.jpg" alt="Gulzar B - Data Analyst" />
         </div>
       </div>
     </div>
